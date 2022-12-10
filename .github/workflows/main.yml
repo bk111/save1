@@ -18,15 +18,15 @@ jobs:
       run: |
         python test1.py
         echo "ok"
-		
+	
     - name: commit
       run: |
         git config --global user.email "blackantt@gmail.com"
         git config --global user.name "bk111"
         git add .
         git commit -m "update" -a
-		
-    - name: Push changes
+
+- name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
