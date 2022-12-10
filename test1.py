@@ -10,7 +10,7 @@ hour = now_time.hour
 url = 'https://www.artstation.com/a_shipwright'
 strhtml = requests.get(url)
 output = strhtml.text
-print(output)
+#print(output)
 
 fp = open("./hotlist1/{}_{}_{}_{}.txt".format(year, month, day, hour), mode="w")
 print(output, file=fp)
