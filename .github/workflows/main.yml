@@ -10,14 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@main
-        with:
-          persist-credentials: false
-          fetch-depth: 0
+      - name: Pull Github data
+      - uses: actions/checkout@v3
 
       - name: run py
         run: |
           python3 ./test1.py
+          echo "ok"
           
       - name: commit
         run: |
