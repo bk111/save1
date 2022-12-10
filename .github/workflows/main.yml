@@ -1,0 +1,32 @@
+name: push back
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout actions
+    - uses: actions/checkout@v3
+
+    - name: test1
+      run: |
+        python test1.py
+        echo "ok"
+		
+    - name: commit
+      run: |
+        git config --global user.email "blackantt@gmail.com"
+        git config --global user.name "bk111"
+        git add .
+        git commit -m "update" -a
+		
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
